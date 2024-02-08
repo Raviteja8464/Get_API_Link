@@ -6,8 +6,8 @@ const port = 3030;
 
 // Connection URI
 const uri = 'mongodb+srv://karadaraviteja:Teja84648@raviteja.syp3gni.mongodb.net/?retryWrites=true&w=majority';
-const dbName = 'sample_guides';
-const collectionName = 'planets';
+const dbName = 'sample_mflix';
+const collectionName = 'users';
 
 // Connection options
 const options = {
@@ -30,11 +30,12 @@ async function connectToMongoDB() {
         // Access the collection
         const collection = db.collection(collectionName);
 
+
         // Fetch data from MongoDB
         //GET request handler
         app.get('/api/get/admitkard/dnaTeam/getdata', async (req, res) => {
             try {
-                const query = {}; // Empty query to fetch all documents
+                const query = {}; // Empty query to fetch all documents ex: hasRings:true
                 const documents = await collection.find(query).toArray();
                 res.json(documents);
             } catch (error) {
