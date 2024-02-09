@@ -5,9 +5,9 @@ const app = express();
 const port = 3030;
 
 // Connection URI
-const uri = 'mongodb+srv://karadaraviteja:Teja84648@raviteja.syp3gni.mongodb.net/?retryWrites=true&w=majority';
-const dbName = 'sample_mflix';
-const collectionName = 'users';
+const uri = 'mongodb+srv://karadaraviteja:Teja84648@raviteja.uqeyhfb.mongodb.net/?retryWrites=true&w=majority';
+const dbName = 'sample_analytics';
+const collectionName = 'accounts';
 
 // Connection options
 const options = {
@@ -32,7 +32,7 @@ async function connectToMongoDB() {
 
 
         // Fetch data from MongoDB
-        //GET request handler
+        //GET request handler '/api/get/admitkard/dnaTeam/getdata'
         app.get('/api/get/admitkard/dnaTeam/getdata', async (req, res) => {
             try {
                 const query = {}; // Empty query to fetch all documents ex: hasRings:true
