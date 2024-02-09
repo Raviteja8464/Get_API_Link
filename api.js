@@ -33,7 +33,7 @@ async function connectToMongoDB() {
 
         // Fetch data from MongoDB
         //GET request handler '/api/get/admitkard/dnaTeam/getdata'
-        app.get('/api/get/admitkard/dnaTeam/getdata', async (req, res) => {
+        app.get('/api/get/admitkard/dnaTeam/getdata/newdata', async (req, res) => {
             try {
                 const query = {}; // Empty query to fetch all documents ex: hasRings:true
                 const documents = await collection.find(query).toArray();
