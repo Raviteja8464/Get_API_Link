@@ -7,7 +7,7 @@ const port = 3030;
 // Connection URI
 const uri = 'mongodb+srv://karadaraviteja:Teja84648@raviteja.uqeyhfb.mongodb.net/?retryWrites=true&w=majority';
 const dbName = 'sample_analytics';
-const collectionName = 'accounts';
+const collectionName = 'customers';
 
 // Connection options
 const options = {
@@ -33,7 +33,7 @@ async function connectToMongoDB() {
 
         // Fetch data from MongoDB
         //GET request handler '/api/get/admitkard/dnaTeam/getdata'
-        app.get('/api/get/admitkard/dnaTeam/getdata/newdata', async (req, res) => {
+        app.get('/api/get/admitkard/dnaTeam/employeedata', async (req, res) => {
             try {
                 const query = {}; // Empty query to fetch all documents ex: hasRings:true
                 const documents = await collection.find(query).toArray();
@@ -50,7 +50,7 @@ async function connectToMongoDB() {
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port}/api/get/admitkard/dnaTeam/employeedata`);
     // Connect to MongoDB when the server starts
     connectToMongoDB();
 });
