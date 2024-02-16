@@ -22,25 +22,20 @@ async function connectToMongoDB() {
     try {
         // Connect to the MongoDB server
         await client.connect();
-        console.log('Connected to Database');
+        console.log(`Connected to Database: ${dbName}`);
 
-        // Access the database
         const db = client.db(dbName);
-
-        // Access the collection
         const collection = db.collection(collectionName);
-
-
-        // Fetch data from MongoDB
         //GET request handler '/api/get/admitkard/dnaTeam/getdata'
         app.get('/api/get/admitkard/dnaTeam/employeedata', async (req, res) => {
             try {
-                const query = {}; // Empty query to fetch all documents ex: hasRings:true
+                const query = {};
                 const documents = await collection.find(query).toArray();
                 res.json(documents);
+                
             } catch (error) {
                 console.error('Error fetching data from MongoDB:', error);
-                res.status(500).send('Internal Server Error');
+                //res.status(500).send('Internal Server Error');
             }
         });
     } catch (error) {
@@ -53,4 +48,4 @@ app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/api/get/admitkard/dnaTeam/employeedata`);
     // Connect to MongoDB when the server starts
     connectToMongoDB();
-});
+})
